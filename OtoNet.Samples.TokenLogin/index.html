@@ -1,0 +1,38 @@
+<html lang="tr">
+    <head>
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    </head>
+    <body>
+        <form method="POST" action="" id="loginForm">
+            <input name="token" type="hidden" value="" id="loginToken" />
+        </form>
+        <input type="button" value="Giriş" id="loginButton" />
+        <script>
+            /*
+                <Uygulamanın alan adı...>
+                    -Giriş yapmak istediğiniz OtoNet sisteminin alan adıdır.
+                    -xyz-otomotiv.com gibi bir değer olabilir.
+                
+                <API kullanım anahtarınız...>
+                    -Giriş yapmak için gerekli değer "...token/get" kaynağından temin edilir.
+                    -Bunun için API kullnım anahtarı gereklidir.
+                    -Bu anahtar OtoNet sisteminin yetkilisinden talep edilir.
+            */
+            var host = "<Uygulamanın alan adı...>";
+            $("#loginButton").on("click", () => {
+                $.ajax({
+                    type: "POST",
+                    url: "http://" + host + "/api/token/get",
+                    data: JSON.stringify({ ApiKey: "<API kullanım anahtarınız...>"}),
+                    success: function(data) {
+                        $("#loginToken").val(data.Token);
+                        $("#loginForm").attr("action", "http://" + host + "/api/Account/TokenLogin");
+                        $("#loginForm").submit();
+                    },
+                    contentType: "application/json",
+                    dataType: "json"
+                });
+            });
+        </script>
+    </body>
+</html>

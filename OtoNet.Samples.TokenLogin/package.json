@@ -1,0 +1,7 @@
+{
+  "name": "otonet.samples.tokenlogin",
+  "dependencies": {
+    "http": "",
+    "fs": ""
+  }
+}
