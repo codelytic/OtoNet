@@ -21,5 +21,5 @@ After installing <a href="https://nodejs.org">Nodejs</a> and its package manager
 # OtoNet.Samples.TokenLogin
 <p>
 This sample shows how you can achive a token based login to OtoNet's e-store application.
-This is mostly required if you have another application and make your dealers to switch from that application to OtoNet's e-store front-end to order spare parts.
+This is mostly required if you have another application and allow your dealers to switch from that application to OtoNet's e-store front-end.
 </p>
